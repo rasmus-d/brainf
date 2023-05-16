@@ -1,7 +1,5 @@
-module Asm where
+module Asm ( asm ) where
     import Types
-    import Control.Monad.State
-    
     asm :: CFG -> String
     asm (blocks) 
         = "section .text\nglobal main\nextern putchar\nextern getchar\nextern calloc\nextern free\n\n" 

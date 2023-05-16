@@ -1,4 +1,14 @@
-module Types where
+module Types 
+    ( IRStmt(IAllocArr, IMoveN, ISumN, IPutC, IGetC)
+        ,  CFGState(..)
+        ,  CFG
+        ,  Token(..)
+        ,  AST
+        ,  ErrorInfo
+        ,  IRBlockend(Jmp, Branch, Ret)
+        ,  IRBlock(IRBlock)
+        ,  Label
+        ,  Stmt(Rep, MoveR, MoveL, Inc, Dec, PutC, GetC) )  where
     
     type ErrorInfo = (String, Int, Int) 
 
@@ -26,7 +36,6 @@ module Types where
         deriving (Eq, Show)
 
     type Label = String
-    type Index = Int
 
     type CFG = [IRBlock] 
 
@@ -55,7 +64,3 @@ module Types where
         , cfgLabel :: Label 
         , cfgRetLabel :: Maybe Label }
         deriving (Eq, Show)
-
-    data ASMState = ASMState
-        { }
-    

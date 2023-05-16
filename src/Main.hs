@@ -1,12 +1,10 @@
 module Main (main) where
-    import Lex 
-    import Types
-    import Asm
-    import Parse
+    import Lex ( lexs ) 
+    import Asm ( asm )
+    import Parse ( ir, parse )
     import System.Environment (getArgs)
-    import System.Exit (exitFailure, exitWith, ExitCode (ExitFailure))
-    import Control.Monad.State (execState, evalState)
-    import System.Process
+    import System.Exit (exitWith, ExitCode (ExitFailure))
+    import System.Process ( spawnProcess )
     
     main :: IO ()
     main = do

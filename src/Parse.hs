@@ -1,7 +1,16 @@
 module Parse(parse, ir) where
-    
-    import Types 
-    import Control.Monad.State 
+    import Control.Monad.State ( evalState, State, gets, MonadState(put, get) ) 
+    import Types
+        ( IRStmt(IAllocArr, IMoveN, ISumN, IPutC, IGetC)
+        ,  CFGState(..)
+        ,  CFG
+        ,  Token(..)
+        ,  AST
+        ,  ErrorInfo
+        ,  IRBlockend(Jmp, Branch, Ret)
+        ,  IRBlock(IRBlock)
+        ,  Label
+        ,  Stmt(Rep, MoveR, MoveL, Inc, Dec, PutC, GetC) ) 
     
     parse :: [Token] -> Either ErrorInfo AST
     parse toks = do
